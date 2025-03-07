@@ -1,0 +1,38 @@
+# Ignore build directories
+build/
+bin/
+obj/
+*.d
+*.out
+*.a
+*.la
+*.lo
+*.so
+*.exe
+
+# Ignore MacOS-specific files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.bak
+
+# Ignore C++ binary files
+*.o
+*.obj
+
+# Ignore compiled libraries
+*.lib
+*.dll
+
+# Ignore debug and release folders
+Debug/
+Release/
