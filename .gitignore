@@ -33,6 +33,11 @@ obj/
 *.lib
 *.dll
 
+# Ignore C/C++ object files
+*.o
+
+
 # Ignore debug and release folders
 Debug/
 Release/
+.gitignore
