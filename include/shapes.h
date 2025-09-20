@@ -30,10 +30,14 @@ typedef struct {
 
 //function prototypes for shape, returns 0 or 1 if intersection occurs
 char intersect_ray_shape(Ray r, Shape *shape, float *t); //ray shape intersection test for any shape, will forward
-char intersect_ray_sphere(Ray r, Shape *shape, float *t); //ray shape intersection test
-char intersect_ray_cube(Ray r, Shape *shape, float *t); //ray shape intersection test
+char intersect_ray_spherical(Ray r, Shape *shape, float *t); //ray shape intersection test
+char intersect_ray_cartesian(Ray r, Shape *shape, float *t); //ray shape intersection test
 char intersect_ray_plane(Ray r, Shape *shape, float *t); //ray shape intersection test
-char intersect_ray_circle(Ray r, Shape *shape, float *t); //ray shape intersection test
-char intersect_ray_square(Ray r, Shape *shape, float *t); //ray shape intersection test
+
+Shape new_sphere(Vector3D center, float radius);
+Shape new_cube(Vector3D center, float side_length);
+Shape new_plane(Vector3D point, Vector3D normal);
+Shape new_circle(Vector3D center, float radius);
+Shape new_square(Vector3D center, float side_length);
 
 #endif
