@@ -58,7 +58,6 @@ char intersect_ray_shape(Ray r, Shape *shape, float *t) //ray shape intersection
     }
 }
 
-
 char intersect_ray_spherical(Ray r, Shape *shape, float *t) //ray shape intersection test
 {
 
@@ -90,9 +89,16 @@ char intersect_ray_spherical(Ray r, Shape *shape, float *t) //ray shape intersec
 
 char intersect_ray_cartesian(Ray r, Shape *shape, float *t) //ray shape intersection test
 {
+    Shape c; // declare once
+    if (shape->type == Square) {
+     c = new_cube(shape->square.center, shape->square.side_length);
+    } else {
+      c = new_cube(shape->cube.center, shape->cube.side_length);
+    }
+
     //define min/max bounds
-    Vector3D min = { c->center.x - c->side_length/2, c->center.y - c->side_length/2, c->center.z - c->side_length/2 };
-    Vector3D max = { c->center.x + c->side_length/2, c->center.y + c->side_length/2, c->center.z + c->side_length/2 };
+    Vector3D min = { c.cube.center.x - c.cube.side_length/2, c.cube.center.y - c.cube.side_length/2, c.cube.center.z - c.cube.side_length/2 };
+    Vector3D max = { c.cube.center.x + c.cube.side_length/2, c.cube.center.y + c.cube.side_length/2, c.cube.center.z + c.cube.side_length/2 };
 
     //compute intersection t values
     float t1 = (min.x - r.origin.x) / r.direction.x; //x
